@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "autoprefixer": "10.4.5",
+    "bootstrap": "^5.2.0-beta1"
+  },
+  "overrides": {
+    "autoprefixer": "10.4.5"
+}
+}
