@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import {Container,Row,Col, Form, Button} from "react-bootstrap"
 
+
+
 const Search =({word,image,setWord})=>{
+
     return(
     <Container className="mt-5">
       <Row className="justify-content-center">
@@ -12,12 +15,17 @@ const Search =({word,image,setWord})=>{
                         <Form.Control
                         placeholder="Search for an image..."
                         type="text"
+                        id="my_Input"
                         value={word}
                         onChange={(e)=> setWord(e.target.value)}
                         />
                     </Col>
-                    <Col>
-                        <Button type="submit" variant="info">Search</Button>
+                    
+                    <Col>   
+                        <Button 
+                        onClick={()=>setWord('')}
+                        type="submit" variant="info">Search
+                         </Button>
                     </Col>
                 </Form.Row>
             </Form>
@@ -25,5 +33,5 @@ const Search =({word,image,setWord})=>{
       </Row>
     </Container>
     )
-}
+    }
 export default Search
