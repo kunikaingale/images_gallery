@@ -16,8 +16,9 @@ const App = () => {
       `https://api.unsplash.com/photos/random/?query=${word}&client_id=${UNSPLASH_KEY}`
     )
       .then((result) => result.json())
-      .then((data) => {
-        console.log(data);
+      .then((data) => { 
+        console.log(word)
+        setImages([data,...images])
       })
       .catch((error) => {
         console.log(error);
