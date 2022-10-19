@@ -19,7 +19,7 @@ const Search = ({ word, image, setWord }) => {
 
               <Col>
                 <Button
-                  onClick={() => setWord("")}
+                  onClick={() => word=''}
                   type="submit"
                   variant="info"
                 >

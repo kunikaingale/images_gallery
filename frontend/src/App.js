@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import { useState } from "react";
+import ImageCard from "./components/ImageCard";
+import { Container, Row, Col } from "react-bootstrap";
 
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 const App = () => {
@@ -18,19 +20,32 @@ const App = () => {
       .then((result) => result.json())
       .then((data) => { 
         console.log(word)
-        setImages([data,...images])
+        setImages([{...data,title: word},...images])
+        console.log(data['urls']['small'])
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
+  const handleDeleteImage=(id)=>{
+    setImages(images.filter((image)=>image.id!==id))
+  }
   return (
     <div>
       <Header title="Images Gallery" />
       <Search image={handleSearchSubmit} word={word} setWord={setWord} />
-    </div>
-  );
+      <Container className="mt-5">
+          <Row xs={1} md={2} lg={3}>
+              {images.map((image,i)=>(
+                 <Col key={i} className="pb-4">
+                <ImageCard image={image} deleteImage={handleDeleteImage}/>
+                </Col>
+              ))
+              }
+      </Row>
+      </Container>
+    </div>  
+  );  
 };
 
 export default App;
