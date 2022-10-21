@@ -9,6 +9,8 @@ const Search = ({ word, image, setWord }) => {
             <Form.Row>
               <Col xs={9}>
                 <Form.Control
+                  width={400}
+                  height={40}
                   placeholder="Search for an image..."
                   type="text"
                   id="my_Input"
@@ -34,3 +36,7 @@ const Search = ({ word, image, setWord }) => {
   );
 };
 export default Search;
+
+
+
+

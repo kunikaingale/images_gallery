@@ -6,6 +6,8 @@ import Search from "./components/Search";
 import { useState } from "react";
 import ImageCard from "./components/ImageCard";
 import { Container, Row, Col } from "react-bootstrap";
+import logo from "./images/logo1.png"
+import { ReactComponent as Logo } from "./images/logo.svg";
 
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 const App = () => {
@@ -33,6 +35,7 @@ const App = () => {
   return (
     <div>
       <Header title="Images Gallery" />
+      <Logo className="logo"></Logo>
       <Search image={handleSearchSubmit} word={word} setWord={setWord} />
       <Container className="mt-5">
           <Row xs={1} md={2} lg={3}>
